@@ -3328,6 +3328,10 @@
                     <a href="ol.events.condition.html#.pointerMove">pointerMove</a>
                 </li>
             
+                <li data-name="ol.events.condition.primaryAction" class="unstable">
+                    <a href="ol.events.condition.html#.primaryAction">primaryAction</a>
+                </li>
+            
                 <li data-name="ol.events.condition.shiftKeyOnly" class="">
                     <a href="ol.events.condition.html#.shiftKeyOnly">shiftKeyOnly</a>
                 </li>
@@ -18280,6 +18284,147 @@ otherwise.</p>
 
 <h5>Returns:</h5>
 True if the browser event is a <code>pointermove</code> event.
+<br />
+
+    
+
+    
+</dd>
+
+        
+            
+<dt class="unstable">
+    <div class="nameContainer">
+        
+        <h4 class="name" id=".primaryAction">
+            ol.events.condition.primaryAction<span class="signature">(mapBrowserEvent)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{boolean}</span>
+            
+            
+<span class="stability experimental">experimental</span>
+
+
+        </h4>
+        
+        <div class="tag-source">
+            src/ol/events/condition.js, line 234
+        </div>
+        
+        
+    </div>
+    
+</dt>
+<dd class="unstable">
+
+    
+    <div class="description">
+        <p>Return <code>true</code> if the event originates from a primary pointer in
+contact with the surface or if the left mouse button is pressed.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr class="">
+            
+                <td class="name"><code>mapBrowserEvent</code></td>
+            
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="ol.MapBrowserEvent.html">ol.MapBrowserEvent</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            <td  class="description last">
+                
+                <p>Map browser event.</p></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://www.w3.org/TR/pointerevents/#button-states">http://www.w3.org/TR/pointerevents/#button-states</a></li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+
+
+<h5>Returns:</h5>
+True if the event originates from a primary pointer.
 <br />
 
     

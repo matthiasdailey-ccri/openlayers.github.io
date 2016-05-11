@@ -3328,6 +3328,10 @@
                     <a href="ol.events.condition.html#.pointerMove">pointerMove</a>
                 </li>
             
+                <li data-name="ol.events.condition.primaryAction" class="unstable">
+                    <a href="ol.events.condition.html#.primaryAction">primaryAction</a>
+                </li>
+            
                 <li data-name="ol.events.condition.shiftKeyOnly" class="">
                     <a href="ol.events.condition.html#.shiftKeyOnly">shiftKeyOnly</a>
                 </li>
@@ -19591,6 +19595,43 @@ Default is <a href="ol.events.condition.html#.targetNotEditable"><code>ol.events
 	</thead>
 	
 	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>condition</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="ol.events.html#.ConditionType">ol.events.ConditionType</a></span>
+|
+
+<span class="param-type">undefined</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last"><p>A function that takes an <a href="ol.MapBrowserEvent.html"><code>ol.MapBrowserEvent</code></a> and returns a boolean
+to indicate whether that event will be considered to add or move a vertex
+to the sketch.
+Default is <a href="ol.events.condition.html#.primaryAction"><code>ol.events.condition.primaryAction</code></a>.</p></td>
+        </tr>
+	
 	
 	
         <tr>

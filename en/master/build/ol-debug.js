@@ -1,6 +1,6 @@
 // OpenLayers 3. See http://openlayers.org/
 // License: https://raw.githubusercontent.com/openlayers/ol3/master/LICENSE.md
-// Version: v3.15.1-169-gd6395a3
+// Version: v3.15.1-173-gd0e5b1e
 
 (function (root, factory) {
   if (typeof exports === "object") {
@@ -43877,6 +43877,21 @@ ol.events.condition.targetNotEditable = function(mapBrowserEvent) {
 ol.events.condition.mouseOnly = function(mapBrowserEvent) {
   // see http://www.w3.org/TR/pointerevents/#widl-PointerEvent-pointerType
   return mapBrowserEvent.pointerEvent.pointerType == 'mouse';
+};
+
+
+/**
+ * Return `true` if the event originates from a primary pointer in
+ * contact with the surface or if the left mouse button is pressed.
+ * @see http://www.w3.org/TR/pointerevents/#button-states
+ *
+ * @param {ol.MapBrowserEvent} mapBrowserEvent Map browser event.
+ * @return {boolean} True if the event originates from a primary pointer.
+ * @api
+ */
+ol.events.condition.primaryAction = function(mapBrowserEvent) {
+  var pointerEvent = mapBrowserEvent.pointerEvent;
+  return pointerEvent.isPrimary && pointerEvent.button === 0;
 };
 
 goog.provide('ol.interaction.Pointer');
@@ -95918,6 +95933,14 @@ ol.interaction.Modify = function(options) {
 
   /**
    * @private
+   * @type {ol.events.ConditionType}
+   */
+  this.condition_ = options.condition ?
+      options.condition : ol.events.condition.primaryAction;
+
+
+  /**
+   * @private
    * @param {ol.MapBrowserEvent} mapBrowserEvent Browser event.
    * @return {boolean} Combined condition result.
    */
@@ -96357,6 +96380,9 @@ ol.interaction.Modify.compareIndexes_ = function(a, b) {
  * @private
  */
 ol.interaction.Modify.handleDownEvent_ = function(evt) {
+  if (!this.condition_(evt)) {
+    return false;
+  }
   this.handlePointerAtPixel_(evt.pixel, evt.map);
   this.dragSegments_.length = 0;
   this.modified_ = false;
@@ -109319,6 +109345,11 @@ goog.exportSymbol(
 goog.exportSymbol(
     'ol.events.condition.mouseOnly',
     ol.events.condition.mouseOnly,
+    OPENLAYERS);
+
+goog.exportSymbol(
+    'ol.events.condition.primaryAction',
+    ol.events.condition.primaryAction,
     OPENLAYERS);
 
 goog.exportProperty(
